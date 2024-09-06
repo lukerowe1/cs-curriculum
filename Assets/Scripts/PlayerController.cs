@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     private float xDirection;
     private Rigidbody2D rb;
 
+
+    public float ySpeed;
+    private float yVector;
+    private float yDirection;
   
     public bool overworld; 
 
@@ -35,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
         xSpeed = 5f;
 
-
+        ySpeed = 5f;
 
 
     }
@@ -47,6 +51,11 @@ public class PlayerController : MonoBehaviour
         xDirection = Input.GetAxis("Horizontal");
         xVector = xSpeed * xDirection * Time.deltaTime;
         transform.position = transform.position + new Vector3(xVector, 0, 0);
+
+
+        yDirection = Input.GetAxis("Vertical");
+        yVector = ySpeed * yDirection * Time.deltaTime;
+        transform.position = transform.position + new Vector3(0, yVector , 0);
 
 
         //xVector = 
